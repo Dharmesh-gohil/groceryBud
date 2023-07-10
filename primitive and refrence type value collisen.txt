@@ -1,0 +1,49 @@
+In JavaScript, simple values such as numbers, 
+booleans, and strings are stored in memory as primitive values. 
+Complex values, such as objects and arrays, are stored in memory 
+as reference values.
+
+Primitive values are stored directly in memory, 
+whereas reference values are stored as a reference to a location 
+in memory where the actual value is stored. 
+When you create a variable that references a complex value, 
+the variable doesn't actually store the value itself, 
+but rather a reference to where that value is stored in memory.
+
+Here is an example to illustrate the difference:
+
+// Primitive value
+let x = 10;
+ 
+// Complex value
+let y = { name: "John", age: 30 };
+In the above example, the variable x stores the 
+primitive value 10, whereas the variable y stores a 
+reference to a location in memory where the object 
+{ name: "John", age: 30 } is stored.
+
+This difference in how values are stored can potentially lead to bugs
+ in your code. For example, consider the following code:
+
+let a = { value: 10 };
+let b = a;
+b.value = 20;
+console.log(a.value); // Output: 20
+In this example, we create an object a with a property value of 10,
+ and then create another variable b and set it equal to a. We then 
+change the value of b.value to 20, and finally log the value of 
+a.value to the console.
+
+Because a and b reference the same object in memory, 
+changing the value of b.value also changes the value of 
+a.value. This can be problematic if you are not aware of 
+how values are stored in memory, as it can lead to unexpected 
+behavior in your code.
+
+To avoid this kind of bug, it is important to be aware of the 
+difference between simple values and complex values, and to 
+understand how values are stored in memory. It is also a 
+good practice to avoid directly modifying objects that are passed 
+as arguments or returned from functions, as this can also lead to 
+unexpected behavior due to the reference nature of complex values 
+in JavaScript.

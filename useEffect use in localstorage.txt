@@ -1,0 +1,6 @@
+I'm wondering if the useEffect approach to update local storage is a good practice or not; what I coded is:
+
+useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+so basically every time items variable changes (the grocery list), useEffect will update the items in local storage. I prefer this method because I don't have to find in components the lines of code where I'm adding/removing items in the list (the code is working)

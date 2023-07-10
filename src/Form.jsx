@@ -1,24 +1,28 @@
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 const Form = ({ addItem}) => {
-    const [newItemNames, setNewItemsNames] = useState([])
+    const [newItemName, setNewItemName] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!newItemNames) return
-        addItem(newItemNames)
-        setNewItemsNames("")
-        // console.log(newItemNames)
+        // console.log(newItemName)
+        if (!newItemName) {
+            toast.error("please provide value")
+            return
+        }
+        addItem(newItemName)
+        
+        setNewItemName("")
      }
   return (
-      <form  onSubmit={handleSubmit}>
-          <h4>Grocery bud</h4>
+      <form onSubmit={handleSubmit}>
+          <h4>Grocery-Bud</h4>
           <div className="form-control">
-              
-          <input type="text"
-              className="form-input"
-              value={newItemNames}
-              onChange={(e) => setNewItemsNames(e.target.value)} />   
-          <button type="submit " className="btn">add-items</button>
+              <input type="text"
+                  className="form-input"
+                  value={newItemName}
+                  onChange={(e) => setNewItemName(e.target.value)} />
+              <button className="btn" type="submit">add-item</button>
           </div>
       </form>
   )
