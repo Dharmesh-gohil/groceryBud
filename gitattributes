@@ -1,2 +1,2 @@
-*.react linquist-detectable=true
-*.css linquist-detectable=false
+*.react linguist-detectable=true
+*.css linguist-detectable=false
