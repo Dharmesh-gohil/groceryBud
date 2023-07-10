@@ -1,0 +1,2 @@
+*.react linquist-detectable=true
+*.css linquist-detectable=false
